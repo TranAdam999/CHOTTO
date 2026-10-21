@@ -1,0 +1,262 @@
+{
+ "_comment": "Sinh bằng new URL() của Node.js 22 (chuẩn WHATWG như Chrome). Dùng chung cho Desktop và Extension.",
+ "vectors": [
+  {
+   "input": "https://evil-login.top\\@vietcombank.com.vn/",
+   "valid": true,
+   "href": "https://evil-login.top/@vietcombank.com.vn/",
+   "host": "evil-login.top"
+  },
+  {
+   "input": "https://vietcombank.com.vn@evil.top/",
+   "valid": true,
+   "href": "https://vietcombank.com.vn@evil.top/",
+   "host": "evil.top"
+  },
+  {
+   "input": "https://user:pass@evil.top:443/a",
+   "valid": true,
+   "href": "https://user:pass@evil.top/a",
+   "host": "evil.top"
+  },
+  {
+   "input": "http://3232235777/login",
+   "valid": true,
+   "href": "http://192.168.1.1/login",
+   "host": "192.168.1.1"
+  },
+  {
+   "input": "http://0xC0A80101/login",
+   "valid": true,
+   "href": "http://192.168.1.1/login",
+   "host": "192.168.1.1"
+  },
+  {
+   "input": "http://192.168.1/x",
+   "valid": true,
+   "href": "http://192.168.0.1/x",
+   "host": "192.168.0.1"
+  },
+  {
+   "input": "http://0300.0250.1.5/",
+   "valid": true,
+   "href": "http://192.168.1.5/",
+   "host": "192.168.1.5"
+  },
+  {
+   "input": "http://192.168.1.5./",
+   "valid": true,
+   "href": "http://192.168.1.5/",
+   "host": "192.168.1.5"
+  },
+  {
+   "input": "HTTPS://ViEtCoMbAnK.CoM.Vn/Path",
+   "valid": true,
+   "href": "https://vietcombank.com.vn/Path",
+   "host": "vietcombank.com.vn"
+  },
+  {
+   "input": " \t https://exa\tmple.com/\n ",
+   "valid": true,
+   "href": "https://example.com/",
+   "host": "example.com"
+  },
+  {
+   "input": "https:\\\\evil.top\\path\\x",
+   "valid": true,
+   "href": "https://evil.top/path/x",
+   "host": "evil.top"
+  },
+  {
+   "input": "https:evil.top/x",
+   "valid": true,
+   "href": "https://evil.top/x",
+   "host": "evil.top"
+  },
+  {
+   "input": "https:///evil.top",
+   "valid": true,
+   "href": "https://evil.top/",
+   "host": "evil.top"
+  },
+  {
+   "input": "https://vietcombank.com.vn.evil.top/",
+   "valid": true,
+   "href": "https://vietcombank.com.vn.evil.top/",
+   "host": "vietcombank.com.vn.evil.top"
+  },
+  {
+   "input": "https://xn--vitcombank-m7a.com/",
+   "valid": true,
+   "href": "https://xn--vitcombank-m7a.com/",
+   "host": "xn--vitcombank-m7a.com"
+  },
+  {
+   "input": "https://viеtcombank.com/",
+   "valid": true,
+   "href": "https://xn--vitcombank-lsi.com/",
+   "host": "xn--vitcombank-lsi.com"
+  },
+  {
+   "input": "https://bücher.de/über?q=ä#ß",
+   "valid": true,
+   "href": "https://xn--bcher-kva.de/%C3%BCber?q=%C3%A4#%C3%9F",
+   "host": "xn--bcher-kva.de"
+  },
+  {
+   "input": "https://example.com/a/b/../c/./d",
+   "valid": true,
+   "href": "https://example.com/a/c/d",
+   "host": "example.com"
+  },
+  {
+   "input": "https://example.com/a/%2e%2E/b",
+   "valid": true,
+   "href": "https://example.com/b",
+   "host": "example.com"
+  },
+  {
+   "input": "https://example.com:8443/",
+   "valid": true,
+   "href": "https://example.com:8443/",
+   "host": "example.com"
+  },
+  {
+   "input": "https://example.com:443/",
+   "valid": true,
+   "href": "https://example.com/",
+   "host": "example.com"
+  },
+  {
+   "input": "http://example.com:80/",
+   "valid": true,
+   "href": "http://example.com/",
+   "host": "example.com"
+  },
+  {
+   "input": "https://[::1]/",
+   "valid": true,
+   "href": "https://[::1]/",
+   "host": "[::1]"
+  },
+  {
+   "input": "https://[2001:db8::1]:8080/x",
+   "valid": true,
+   "href": "https://[2001:db8::1]:8080/x",
+   "host": "[2001:db8::1]"
+  },
+  {
+   "input": "https://example.com/ a\"b<c>?q=1 2'3\"#f g`",
+   "valid": true,
+   "href": "https://example.com/%20a%22b%3Cc%3E?q=1%202%273%22#f%20g%60",
+   "host": "example.com"
+  },
+  {
+   "input": "https://example。com/",
+   "valid": true,
+   "href": "https://example.com/",
+   "host": "example.com"
+  },
+  {
+   "input": "https://EXAMPLE.com./",
+   "valid": true,
+   "href": "https://example.com/",
+   "host": "example.com",
+   "note": "CHOTTO bỏ dấu chấm cuối tên miền (cùng một tên DNS)"
+  },
+  {
+   "input": "https://ex%41mple.com/",
+   "valid": true,
+   "href": "https://example.com/",
+   "host": "example.com"
+  },
+  {
+   "input": "https://a..b.com/",
+   "valid": true,
+   "href": "https://a..b.com/",
+   "host": "a..b.com"
+  },
+  {
+   "input": "https://vcb.top]/",
+   "valid": false
+  },
+  {
+   "input": "https://[evil.top/",
+   "valid": false
+  },
+  {
+   "input": "https://evil.top:80x/",
+   "valid": false
+  },
+  {
+   "input": "https://ex ample.com/",
+   "valid": false
+  },
+  {
+   "input": "https://exa%20mple.com/",
+   "valid": false
+  },
+  {
+   "input": "https://xn--a.com/",
+   "valid": false
+  },
+  {
+   "input": "https://@evil.top/",
+   "valid": true,
+   "href": "https://evil.top/",
+   "host": "evil.top"
+  },
+  {
+   "input": "https://evil.top#@vietcombank.com.vn",
+   "valid": true,
+   "href": "https://evil.top/#@vietcombank.com.vn",
+   "host": "evil.top"
+  },
+  {
+   "input": "https://evil.top?@vietcombank.com.vn",
+   "valid": true,
+   "href": "https://evil.top/?@vietcombank.com.vn",
+   "host": "evil.top"
+  },
+  {
+   "input": "https://1.2.3.4.5/",
+   "valid": false
+  },
+  {
+   "input": "https://256.1.1.1/",
+   "valid": false
+  },
+  {
+   "input": "https://1.2.3.0x/",
+   "valid": true,
+   "href": "https://1.2.3.0/",
+   "host": "1.2.3.0"
+  },
+  {
+   "input": "https://example.com/xác-nhận",
+   "valid": true,
+   "href": "https://example.com/x%C3%A1c-nh%E1%BA%ADn",
+   "host": "example.com"
+  },
+  {
+   "input": "https://soft­hyphen.com/",
+   "valid": true,
+   "href": "https://softhyphen.com/",
+   "host": "softhyphen.com"
+  },
+  {
+   "input": "https://example.com/%zz%2",
+   "valid": true,
+   "href": "https://example.com/%zz%2",
+   "host": "example.com"
+  },
+  {
+   "input": "javascript:alert(1)",
+   "valid": false
+  },
+  {
+   "input": "https://",
+   "valid": false
+  }
+ ]
+}

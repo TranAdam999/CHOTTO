@@ -1,0 +1,666 @@
+{
+  "version": 3,
+  "thresholds": {
+    "friction": 30,
+    "high": 60,
+    "tier3_low": 10,
+    "tier3_high": 50,
+    "entropy": 3.65,
+    "hyphens": 2,
+    "unwrap_depth": 8
+  },
+  "weights": {
+    "typosquat": 45,
+    "homoglyph": 45,
+    "combosquat": 40,
+    "lure_each": 12,
+    "lure_cap": 30,
+    "high_risk_tld": 18,
+    "entropy": 13,
+    "hyphens": 18,
+    "random_digits": 4,
+    "raw_ip": 35,
+    "at_sign": 30,
+    "http": 27,
+    "idn": 20,
+    "shortener": 30,
+    "nested_redirect": 35,
+    "port": 10,
+    "free_hosting": 32,
+    "unparseable": 50,
+    "redirect_via_trusted": 10,
+    "brand_in_path": 30
+  },
+  "high_risk_tlds": [
+    "bond",
+    "buzz",
+    "cfd",
+    "click",
+    "cyou",
+    "icu",
+    "ink",
+    "live",
+    "lol",
+    "mom",
+    "monster",
+    "online",
+    "rest",
+    "sbs",
+    "shop",
+    "site",
+    "tokyo",
+    "top",
+    "vip",
+    "xyz"
+  ],
+  "lure_keywords": [
+    "xác nhận",
+    "xác minh",
+    "khóa tài khoản",
+    "khóa thẻ",
+    "mở khóa",
+    "phạt nguội",
+    "tra cứu phạt nguội",
+    "sinh trắc học",
+    "cập nhật CCCD",
+    "hoàn thuế",
+    "hoàn tiền",
+    "nhận thưởng",
+    "trúng thưởng",
+    "xác thực",
+    "tạm khóa",
+    "đóng băng",
+    "nhận quà",
+    "cập nhật thông tin",
+    "định danh điện tử",
+    "kích hoạt tài khoản",
+    "hoàn phí",
+    "nộp phạt",
+    "thuế thu nhập"
+  ],
+  "shorteners": [
+    "bit.ly",
+    "bitly.com",
+    "buff.ly",
+    "cutt.ly",
+    "goo.gl",
+    "is.gd",
+    "lnkd.in",
+    "ow.ly",
+    "rb.gy",
+    "rebrand.ly",
+    "s.id",
+    "short.gy",
+    "shorten.asia",
+    "shorturl.at",
+    "surl.li",
+    "t.co",
+    "t.ly",
+    "tiny.cc",
+    "tinyurl.com",
+    "tinyurl.vn",
+    "v.gd"
+  ],
+  "wrappers": [
+    {
+      "host": "l.messenger.com",
+      "path": "/l.php",
+      "params": [
+        "u"
+      ]
+    },
+    {
+      "host": "l.facebook.com",
+      "path": "/l.php",
+      "params": [
+        "u"
+      ]
+    },
+    {
+      "host": "lm.facebook.com",
+      "path": "/l.php",
+      "params": [
+        "u"
+      ]
+    },
+    {
+      "host": "google.com",
+      "path": "/url",
+      "params": [
+        "q",
+        "url"
+      ]
+    },
+    {
+      "host": "www.google.com",
+      "path": "/url",
+      "params": [
+        "q",
+        "url"
+      ]
+    },
+    {
+      "host": "www.google.com.vn",
+      "path": "/url",
+      "params": [
+        "q",
+        "url"
+      ]
+    },
+    {
+      "host": "zalo.me",
+      "path": "/",
+      "params": [
+        "*"
+      ]
+    },
+    {
+      "host": "www.zalo.me",
+      "path": "/",
+      "params": [
+        "*"
+      ]
+    },
+    {
+      "host": "l.zalo.me",
+      "path": "/",
+      "params": [
+        "*"
+      ]
+    },
+    {
+      "host": "link.zalo.me",
+      "path": "/",
+      "params": [
+        "*"
+      ]
+    },
+    {
+      "host": "redirect.zalo.me",
+      "path": "/",
+      "params": [
+        "*"
+      ]
+    },
+    {
+      "host": "zaloapp.com",
+      "path": "/",
+      "params": [
+        "*"
+      ]
+    },
+    {
+      "host": "l.zaloapp.com",
+      "path": "/",
+      "params": [
+        "*"
+      ]
+    },
+    {
+      "host": "link.zaloapp.com",
+      "path": "/",
+      "params": [
+        "*"
+      ]
+    },
+    {
+      "host": "zalo.vn",
+      "path": "/",
+      "params": [
+        "*"
+      ]
+    },
+    {
+      "host": "www.google.com",
+      "path": "/amp/s/",
+      "target": "path",
+      "scheme": "https"
+    },
+    {
+      "host": "www.google.com",
+      "path": "/amp/",
+      "target": "path",
+      "scheme": "http"
+    },
+    {
+      "host": "www.google.com.vn",
+      "path": "/amp/s/",
+      "target": "path",
+      "scheme": "https"
+    },
+    {
+      "host": "safelinks.protection.outlook.com",
+      "match": "suffix",
+      "path": "/",
+      "params": [
+        "url"
+      ]
+    },
+    {
+      "host": "l.instagram.com",
+      "path": "/",
+      "params": [
+        "u"
+      ]
+    },
+    {
+      "host": "www.youtube.com",
+      "path": "/redirect",
+      "params": [
+        "q"
+      ]
+    },
+    {
+      "host": "away.vk.com",
+      "path": "/away.php",
+      "params": [
+        "to"
+      ]
+    },
+    {
+      "host": "href.li",
+      "path": "/",
+      "target": "query"
+    },
+    {
+      "host": "m.facebook.com",
+      "path": "/l.php",
+      "params": [
+        "u"
+      ]
+    },
+    {
+      "host": "www.bing.com",
+      "path": "/ck/a",
+      "params": [
+        "u"
+      ]
+    }
+  ],
+  "trusted_domains": [
+    "google.com",
+    "youtube.com",
+    "facebook.com",
+    "microsoft.com",
+    "office.com",
+    "live.com",
+    "apple.com",
+    "github.com",
+    "wikipedia.org",
+    "zoom.us",
+    "linkedin.com",
+    "tiktok.com",
+    "vnexpress.net",
+    "tuoitre.vn",
+    "thanhnien.vn",
+    "dantri.com.vn",
+    "vietnamnet.vn",
+    "gov.vn",
+    "zalo.me",
+    "zaloapp.com",
+    "zalo.vn",
+    "chat.zalo.me",
+    "tiki.vn",
+    "lazada.vn",
+    "thegioididong.com",
+    "dienmayxanh.com",
+    "fptshop.com.vn",
+    "nhandan.vn",
+    "baochinhphu.vn"
+  ],
+  "blacklist_sources": [
+    {
+      "name": "ChongLuaDao",
+      "url": "https://api.chongluadao.vn/v1/blacklist",
+      "format": "auto",
+      "min_entries": 100
+    },
+    {
+      "name": "Phishing.Database",
+      "url": "https://raw.githubusercontent.com/mitchellkrogza/Phishing.Database/master/phishing-links/output/domains/ACTIVE/list",
+      "format": "auto",
+      "min_entries": 100
+    },
+    {
+      "name": "PhishTank",
+      "url": "https://data.phishtank.com/data/online-valid.csv",
+      "format": "auto",
+      "min_entries": 100
+    }
+  ],
+  "brands": [
+    {
+      "name": "Vietcombank",
+      "keywords": [
+        "vietcombank",
+        "vcb",
+        "vcbdigibank"
+      ],
+      "domains": [
+        "vietcombank.com.vn",
+        "vcb.com.vn"
+      ]
+    },
+    {
+      "name": "MBBank",
+      "keywords": [
+        "mbbank"
+      ],
+      "domains": [
+        "mbbank.com.vn",
+        "mbbank.vn"
+      ]
+    },
+    {
+      "name": "BIDV",
+      "keywords": [
+        "bidv"
+      ],
+      "domains": [
+        "bidv.com.vn",
+        "bidv.vn"
+      ]
+    },
+    {
+      "name": "Techcombank",
+      "keywords": [
+        "techcombank",
+        "tcb"
+      ],
+      "domains": [
+        "techcombank.com.vn",
+        "techcombank.vn"
+      ]
+    },
+    {
+      "name": "VietinBank",
+      "keywords": [
+        "vietinbank"
+      ],
+      "domains": [
+        "vietinbank.vn",
+        "vietinbank.com.vn"
+      ]
+    },
+    {
+      "name": "Agribank",
+      "keywords": [
+        "agribank"
+      ],
+      "domains": [
+        "agribank.com.vn"
+      ]
+    },
+    {
+      "name": "ACB",
+      "keywords": [
+        "acb"
+      ],
+      "domains": [
+        "acb.com.vn"
+      ]
+    },
+    {
+      "name": "VPBank",
+      "keywords": [
+        "vpbank"
+      ],
+      "domains": [
+        "vpbank.com.vn"
+      ]
+    },
+    {
+      "name": "Sacombank",
+      "keywords": [
+        "sacombank"
+      ],
+      "domains": [
+        "sacombank.com.vn"
+      ]
+    },
+    {
+      "name": "TPBank",
+      "keywords": [
+        "tpbank"
+      ],
+      "domains": [
+        "tpb.vn",
+        "tpbank.com.vn"
+      ]
+    },
+    {
+      "name": "MoMo",
+      "keywords": [
+        "momo"
+      ],
+      "domains": [
+        "momo.vn",
+        "momocdn.net",
+        "mservice.com.vn"
+      ]
+    },
+    {
+      "name": "ZaloPay",
+      "keywords": [
+        "zalopay"
+      ],
+      "domains": [
+        "zalopay.vn"
+      ]
+    },
+    {
+      "name": "Zalo",
+      "keywords": [
+        "zalo"
+      ],
+      "domains": [
+        "zalo.me",
+        "zaloapp.com",
+        "zalo.vn"
+      ]
+    },
+    {
+      "name": "VNPay",
+      "keywords": [
+        "vnpay"
+      ],
+      "domains": [
+        "vnpay.vn"
+      ]
+    },
+    {
+      "name": "VNeID",
+      "keywords": [
+        "vneid"
+      ],
+      "domains": [
+        "vneid.gov.vn"
+      ]
+    },
+    {
+      "name": "Tổng cục Thuế",
+      "keywords": [
+        "thuedientu",
+        "tongcucthue",
+        "gdt"
+      ],
+      "domains": [
+        "gdt.gov.vn"
+      ]
+    },
+    {
+      "name": "EVN",
+      "keywords": [
+        "evn",
+        "evnhanoi",
+        "evnhcmc",
+        "evnnpc",
+        "evncpc",
+        "evnspc"
+      ],
+      "domains": [
+        "evn.com.vn",
+        "evnhanoi.vn",
+        "evnhcmc.vn",
+        "evnspc.vn",
+        "evncpc.vn",
+        "evnnpc.gov.vn"
+      ]
+    },
+    {
+      "name": "Cổng Dịch vụ công",
+      "keywords": [
+        "dichvucong"
+      ],
+      "domains": [
+        "dichvucong.gov.vn"
+      ]
+    },
+    {
+      "name": "CSGT",
+      "keywords": [
+        "csgt",
+        "phatnguoi"
+      ],
+      "domains": [
+        "csgt.vn"
+      ]
+    },
+    {
+      "name": "VNPost",
+      "keywords": [
+        "vnpost"
+      ],
+      "domains": [
+        "vnpost.com.vn",
+        "vnpost.vn"
+      ]
+    },
+    {
+      "name": "Viettel",
+      "keywords": [
+        "viettel",
+        "viettelpay"
+      ],
+      "domains": [
+        "viettel.com",
+        "viettel.com.vn",
+        "viettel.vn",
+        "viettelfamily.com",
+        "viettelpay.vn",
+        "viettelpost.com.vn",
+        "viettelstore.vn",
+        "vietteltelecom.vn"
+      ]
+    },
+    {
+      "name": "Shopee",
+      "keywords": [
+        "shopee"
+      ],
+      "domains": [
+        "shopee.com",
+        "shopee.com.vn",
+        "shopee.vn",
+        "shopeefood.vn",
+        "shopeemobile.com",
+        "shopeepay.vn",
+        "shp.ee"
+      ]
+    }
+  ],
+  "brand_affixes": [
+    "online",
+    "digital",
+    "digi",
+    "digibank",
+    "bank",
+    "banking",
+    "ebank",
+    "ibank",
+    "smart",
+    "app",
+    "apps",
+    "login",
+    "signin",
+    "secure",
+    "security",
+    "verify",
+    "verification",
+    "xacthuc",
+    "xacnhan",
+    "xacminh",
+    "hotro",
+    "cskh",
+    "khachhang",
+    "support",
+    "service",
+    "services",
+    "update",
+    "capnhat",
+    "vn",
+    "vietnam",
+    "pay",
+    "mobile",
+    "card",
+    "the",
+    "otp",
+    "account",
+    "taikhoan",
+    "info",
+    "web",
+    "online24h",
+    "247",
+    "24h",
+    "club",
+    "gift",
+    "qua",
+    "uudai",
+    "khuyenmai",
+    "event",
+    "sukien",
+    "hoantien",
+    "nhanqua",
+    "official",
+    "chinhthuc",
+    "id",
+    "auth",
+    "portal",
+    "ib",
+    "mb",
+    "my",
+    "e",
+    "i"
+  ],
+  "blacklist_max_bytes": 67108864,
+  "age_curve": [
+    [
+      0,
+      50
+    ],
+    [
+      7,
+      40
+    ],
+    [
+      30,
+      22
+    ],
+    [
+      90,
+      10
+    ],
+    [
+      180,
+      0
+    ],
+    [
+      365,
+      0
+    ],
+    [
+      730,
+      -10
+    ]
+  ]
+}
