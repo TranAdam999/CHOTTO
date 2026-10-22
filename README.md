@@ -1,4 +1,4 @@
-# CHOTTO Desktop – Khoan đã! (v1.3.0)
+# CHOTTO – Khoan đã! (v1.4.0)
 
 Trạm kiểm soát link Zalo trên máy tính (Windows / macOS). CHOTTO đăng ký làm trình duyệt mặc định,
 nhận link được bấm trong Zalo, chấm điểm rủi ro rồi mới quyết định mở thẳng hay hiện màn hình cảnh báo
@@ -13,6 +13,11 @@ Bản 1.3 tập trung vào **độ chính xác**, đo trên dữ liệu thật (
 danh sách 3.232 tên miền .vn phổ biến để giảm báo nhầm, đường cong điểm tuổi tên miền liên tục, RDAP hỏi
 thẳng nhà đăng ký, lời khuyên theo tổ hợp dấu hiệu, và Tầng 1 tra cứu hoàn toàn trong RAM, tự cập nhật
 mỗi ngày.
+
+Bản 1.4 thêm **tiện ích trình duyệt (Manifest V3) cho Zalo Web** (`chat.zalo.me`) trên Chrome, Edge và
+Firefox, trong thư mục [`extension/`](extension/README.md). Tiện ích dùng **chung bộ luật và dữ liệu** với
+bản Desktop; một bộ 2.521 URL dùng chung (`tests/data/engine_vectors.json`) bảo đảm hai bản cho cùng điểm,
+cùng mức, cùng lý do và cùng lời khuyên.
 
 ## Yêu cầu
 - Python **3.11+** (cần có `tkinter`; trên Linux: `sudo apt install python3-tk`).
@@ -50,6 +55,14 @@ CHOTTO/
 │       ├── public_suffix_list.dat   Public Suffix List (MPL-2.0, publicsuffix.org)
 │       ├── confusables_ascii.json   bảng ký tự đồng hình rút từ Unicode TR39
 │       └── blacklist.seed.txt   danh sách đen khởi tạo
+├── extension/                tiện ích trình duyệt cho Zalo Web (xem extension/README.md)
+│   ├── manifest.json         Manifest V3 (Chrome/Edge; bản Firefox sinh lúc đóng gói)
+│   ├── src/engine/           engine 3 tầng viết lại bằng JavaScript, khớp 1-1 với bản Python
+│   ├── src/                  service worker, content script, main-world script, kho IndexedDB, cập nhật
+│   ├── src/ui/               màn hình “Khoan đã!” (Shadow DOM đóng), trang cảnh báo, trang cài đặt
+│   ├── data/                 dữ liệu sinh từ chotto/data bằng tools/sync_extension_data.py
+│   ├── tests/                test Node (engine, IndexedDB, cập nhật, khớp với Python)
+│   └── e2e/                  test end-to-end bằng Chromium thật trên trang Zalo giả lập
 ├── packaging/
 │   ├── build_windows.bat     đóng gói CHOTTO (PyInstaller, chế độ onedir)
 │   └── macos_setup.py        đóng gói CHOTTO.app (py2app)
@@ -57,11 +70,15 @@ CHOTTO/
 ├── tools/
 │   ├── eval_accuracy.py      đo báo nhầm / tỷ lệ bắt được trên dữ liệu thật (CrUX + Phishing.Database)
 │   ├── calibrate_weights.py  hồi quy logistic để hiệu chỉnh trọng số, kiểm chứng trên tập giữ riêng
-│   └── build_popular.py      sinh lại chotto/data/popular_vn.txt
-└── tests/                    147 test: engine + ca tấn công trong audit, URL, PSL, Tầng 1/3, cấu hình,
+│   ├── build_popular.py      sinh lại chotto/data/popular_vn.txt
+│   ├── sync_extension_data.py   đồng bộ chotto/data → extension/data (--check để kiểm tra lệch)
+│   ├── gen_engine_vectors.py    sinh bộ URL dùng chung cho test khớp Python ↔ JavaScript
+│   └── build_extension.py    đóng gói dist/chotto-extension-{chrome,firefox}-<phiên bản>.zip
+└── tests/                    151 test: engine + ca tấn công trong audit, URL, PSL, Tầng 1/3, cấu hình,
                               nhật ký, luồng xử lý link, IPC/agent/launcher, lệnh mở trình duyệt,
                               nhận diện Zalo, giao diện Tk (tự bỏ qua nếu máy không có Tk), danh sách
-                              phổ biến, lời khuyên tổ hợp, RDAP bootstrap, cập nhật tăng dần
+                              phổ biến, lời khuyên tổ hợp, RDAP bootstrap, cập nhật tăng dần,
+                              dữ liệu tiện ích khớp bản Desktop, bộ URL dùng chung
 ```
 
 ## Chạy thử (không cần cài đặt gì)

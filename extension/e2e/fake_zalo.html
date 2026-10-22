@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <title>Zalo Web (giả lập kiểm thử)</title>
+  <style>
+    body { font: 16px/1.6 sans-serif; margin: 24px; }
+    .msg { display: block; margin: 12px 0; padding: 8px 12px; background: #eef3ff; border-radius: 8px; width: 520px; }
+    a, button { font: inherit; }
+  </style>
+</head>
+<body>
+  <div id="chat">
+    <!-- Mô phỏng tin nhắn Zalo: thẻ <a target="_blank"> và một handler React-like ở document. -->
+    <span class="msg"><a id="safe" href="https://vietcombank.com.vn/" target="_blank" rel="noopener">https://vietcombank.com.vn/</a></span>
+    <span class="msg"><a id="phish" href="https://vietcombank-xacthuc.top/login" target="_blank">vietcombank-xacthuc.top/login</a></span>
+    <span class="msg"><a id="blocked" href="https://vcb-digibank-xacthuc.top/" target="_blank">vcb-digibank-xacthuc.top</a></span>
+    <span class="msg"><a id="internal" href="/conversation/123">Mở cuộc trò chuyện</a></span>
+    <span class="msg"><span id="spanlink"><a id="nested" href="https://momo-hoantien.vip/nhan-qua" target="_blank"><b id="nested-inner">Nhận quà MoMo</b></a></span></span>
+    <span class="msg"><button id="jsopen" type="button">Xem ảnh (window.open)</button></span>
+    <span class="msg"><button id="jsopen-auto" type="button" style="display:none">auto</button></span>
+    <form class="msg" id="form" action="https://bidv-smartbanking.com/xac-thuc" method="get" target="_blank">
+      <button id="formsubmit" type="submit">Gửi form ra tab mới (lưới an toàn)</button>
+    </form>
+  </div>
+  <p id="log"></p>
+  <script>
+    // Handler kiểu React: nếu CHOTTO không chặn trước, nó sẽ ghi lại cú click.
+    document.addEventListener("click", (event) => {
+      const a = event.target.closest && event.target.closest("a");
+      if (a) document.getElementById("log").textContent += "zalo-handler:" + a.id + ";";
+    });
+    document.getElementById("jsopen").addEventListener("click", () => {
+      window.open("https://vietc0mbank.com.vn/otp", "_blank");
+    });
+    window.__autoOpen = () => window.open("https://momo-hoantien.vip/spam", "_blank");
+  </script>
+</body>
+</html>

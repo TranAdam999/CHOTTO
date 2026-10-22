@@ -1,0 +1,4 @@
+# Dữ liệu mẫu để kiểm thử. Chạy `python main.py update-blacklist` để nạp danh sách thật.
+phish-test.chotto.invalid
+vcb-digibank-xacthuc.top
+momo-hoantien.vip

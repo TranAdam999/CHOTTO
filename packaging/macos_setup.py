@@ -9,7 +9,7 @@ from setuptools import setup
 if sys.version_info < (3, 11):
     raise SystemExit("CHOTTO cần Python 3.11 trở lên.")
 
-VERSION = "1.3.0"
+VERSION = "1.4.0"
 
 # Không khai báo CFBundleDocumentTypes: CHOTTO chỉ nhận link qua Apple Event kAEGetURL
 # (::tk::mac::LaunchURL). Khai báo kiểu tài liệu HTML mà không xử lý OpenDocument sẽ khiến

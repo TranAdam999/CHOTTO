@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <title>Zalo – Trò chuyện (trang minh họa)</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font: 15px/1.45 system-ui, "Segoe UI", Roboto, sans-serif; background: #e9ecf1; color: #081c36; display: flex; height: 100vh; }
+    .rail { width: 64px; background: #0068ff; }
+    .list { width: 300px; background: #fff; border-right: 1px solid #dfe2e7; }
+    .list .item { padding: 14px 16px; border-bottom: 1px solid #f0f2f5; }
+    .list .item.active { background: #e5efff; }
+    .muted { color: #7589a3; font-size: 13px; }
+    .chat { flex: 1; display: flex; flex-direction: column; }
+    header { background: #fff; padding: 14px 20px; border-bottom: 1px solid #dfe2e7; font-weight: 600; }
+    .msgs { flex: 1; padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+    .bubble { max-width: 520px; background: #fff; border-radius: 10px; padding: 10px 14px; box-shadow: 0 1px 1px rgba(0,0,0,.06); }
+    .bubble.me { align-self: flex-end; background: #e5efff; }
+    a { color: #0068ff; }
+  </style>
+</head>
+<body>
+  <div class="rail"></div>
+  <div class="list">
+    <div class="item active"><b>Nhóm Gia đình</b><div class="muted">Chú Tư: Bấm vào đây để nhận…</div></div>
+    <div class="item"><b>Vietcombank CSKH</b><div class="muted">Tài khoản của quý khách…</div></div>
+    <div class="item"><b>Lớp 12A1</b><div class="muted">Mai nộp bài nha</div></div>
+  </div>
+  <div class="chat">
+    <header>Nhóm Gia đình <span class="muted">· 6 thành viên</span></header>
+    <div class="msgs">
+      <div class="bubble">Chú Tư: Ngân hàng nhắn tài khoản bị khóa, mọi người xác nhận gấp kẻo mất tiền nhé:<br>
+        <a id="phish" href="https://vietcombank-xacthuc.top/login" target="_blank">https://vietcombank-xacthuc.top/login</a></div>
+      <div class="bubble">Cô Ba: Ai nhận quà MoMo chưa? <a id="blocked" href="https://vcb-digibank-xacthuc.top/" target="_blank">https://vcb-digibank-xacthuc.top/</a></div>
+      <div class="bubble me">Để con xem trang chính thức: <a id="safe" href="https://vietcombank.com.vn/" target="_blank">https://vietcombank.com.vn/</a></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CHOTTO – Cài đặt</title>
+  <link rel="stylesheet" href="page.css">
+  <script type="module" src="options.js"></script>
+</head>
+<body>
+<main>
+  <h1>CHOTTO</h1>
+  <p class="muted">Khoan đã! Kiểm tra link Zalo trước khi mở. Phiên bản <span id="version">…</span></p>
+
+  <h2>Cách hoạt động</h2>
+  <div class="panel">
+    <p>Khi bạn bấm một liên kết trên <strong>chat.zalo.me</strong>, CHOTTO thẩm định nó ngay trên máy (danh sách đen,
+      phân tích tên miền tiếng Việt, tuổi tên miền). Liên kết an toàn được mở như bình thường; liên kết đáng ngờ
+      hiện màn hình “Khoan đã!” với nút “vẫn mở” bị khóa vài giây để bạn kịp suy nghĩ.</p>
+    <p class="muted">Không có URL nào được gửi lên máy chủ của CHOTTO. Tầng 3 (nếu bật) chỉ gửi <em>tên miền</em> tới
+      dịch vụ RDAP công khai để hỏi ngày đăng ký.</p>
+  </div>
+
+  <h2>Cài đặt</h2>
+  <form id="settings" class="panel">
+    <label class="row"><input type="checkbox" name="tier3Enabled">
+      <span>Tra tuổi tên miền qua mạng (Tầng 3). Tắt = chạy 100% offline với lời khuyên cục bộ.</span></label>
+    <label class="row"><input type="checkbox" name="aiAdvice">
+      <span>Hiện lời khuyên cục bộ (AI's Advices) khi không có thông tin tuổi tên miền.</span></label>
+    <label class="row"><input type="checkbox" name="autoUpdate">
+      <span>Tự cập nhật danh sách đen mỗi ngày.</span></label>
+    <label class="row"><input type="checkbox" name="logDecisions">
+      <span>Ghi nhật ký quyết định trên máy (chỉ tên miền, mức rủi ro và lựa chọn của bạn).</span></label>
+    <label class="row"><span>Thời gian khóa nút “vẫn mở” (giây, 3–15; mức rất nguy hiểm +3, danh sách đen +5):</span>
+      <input type="number" name="frictionSeconds" min="3" max="15" step="1" required></label>
+    <label class="row"><span>Giữ nhật ký (ngày):</span>
+      <input type="number" name="logRetentionDays" min="1" max="3650" step="1" required></label>
+    <div class="actions"><button type="submit" class="primary">Lưu cài đặt</button></div>
+    <div id="settings-status" class="status" role="status"></div>
+  </form>
+
+  <h2>Danh sách đen (Tầng 1)</h2>
+  <div class="panel">
+    <p id="blacklist">…</p>
+    <p id="update" class="muted"></p>
+    <div class="actions"><button id="update-now" type="button">Cập nhật ngay</button></div>
+    <div id="update-status" class="status" role="status"></div>
+  </div>
+
+  <h2>Thử một liên kết</h2>
+  <form id="test" class="panel">
+    <input type="url" name="url" placeholder="https://..." required>
+    <div class="actions"><button type="submit">Kiểm tra</button></div>
+    <div id="test-status" class="status" role="status"></div>
+  </form>
+
+  <h2>Nhật ký quyết định</h2>
+  <div class="panel">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Thời điểm</th><th>Tên miền</th><th>Mức</th><th>Điểm</th><th>Lựa chọn</th><th>Kênh</th></tr></thead>
+        <tbody id="log"></tbody>
+      </table>
+    </div>
+    <div class="actions"><button id="log-clear" type="button">Xóa nhật ký</button></div>
+    <div id="log-status" class="status" role="status"></div>
+  </div>
+</main>
+</body>
+</html>

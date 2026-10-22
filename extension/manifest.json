@@ -1,0 +1,62 @@
+{
+  "manifest_version": 3,
+  "name": "CHOTTO – Khoan đã!",
+  "short_name": "CHOTTO",
+  "version": "1.4.0",
+  "description": "Chặn link lừa đảo trên Zalo Web: kiểm tra mọi liên kết ngay trên máy trước khi mở, dừng lại khi đáng ngờ.",
+  "minimum_chrome_version": "111",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "CHOTTO – Cài đặt",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    }
+  },
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "options_ui": {
+    "page": "src/ui/options.html",
+    "open_in_tab": true
+  },
+  "permissions": [
+    "storage",
+    "alarms",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "https://chat.zalo.me/*",
+    "https://rdap.org/*",
+    "https://data.iana.org/*",
+    "https://api.chongluadao.vn/*",
+    "https://raw.githubusercontent.com/*",
+    "https://data.phishtank.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://chat.zalo.me/*"],
+      "js": ["src/ui/friction.js", "src/content.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true
+    },
+    {
+      "matches": ["https://chat.zalo.me/*"],
+      "js": ["src/main_world.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true,
+      "world": "MAIN"
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'; base-uri 'none'"
+  }
+}
